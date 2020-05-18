@@ -1,0 +1,23 @@
+{
+  "name": "ask_omega",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "$(npm bin)/parcel index.html"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/geojson": "^7946.0.7",
+    "@types/leaflet": "^1.5.12",
+    "leaflet": "^1.6.0",
+    "parcel": "^1.12.4",
+    "sass": "^1.26.5",
+    "typescript": "^3.9.2"
+  },
+  "dependencies": {
+    "axios": "^0.19.2"
+  }
+}
