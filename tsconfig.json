@@ -5,12 +5,14 @@
     "declaration": false,
     "noImplicitAny": false,
     "removeComments": true,
-    "noLib": false
+    "noLib": false,
+    "noUnusedLocals": true
 },
 "include": [
     "**/*"
 ],
 "exclude": [
     "node_modules",
-    "**/*.spec.ts"
+    "**/*.spec.ts",
+    "depr/*"
 ]}
