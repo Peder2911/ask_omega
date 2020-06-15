@@ -1,13 +1,16 @@
 
 import {MultiPolygon,Point} from "geojson"
+import KDBush from "kdbush"
 
 export class State {
    Components = new Components()
 
    Entities: number[] = []
-   Index = new Index(this)
+
 
    Systems: any[] = []
+
+   Index = new Index(this)
 }
 
 class Components {
@@ -17,11 +20,16 @@ class Components {
    // Rendering 
    Style: string[] = []
    Visible: boolean[] = []
+   Size: number[] = []
+   Highlighted: boolean[] = []
+   Refresh: boolean[] = []
 
    // Geometry
 
    Point: Point[] = []
    Polygon: MultiPolygon[] = []
+   SpIndex: number[] = []
+   KDBush: KDBush[] = []
 
    In: number[][] = []
 

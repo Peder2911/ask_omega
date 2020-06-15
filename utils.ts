@@ -1,6 +1,6 @@
 
 // Find all indices corresponding to e in a.
-export const indicesOf = (a: string[], e: string): number[]=>{
+export const indicesOf = (a: any[], e: any): number[]=>{
    let idxs = []
    let first = a.indexOf(e)
    if(first === -1){

@@ -1,9 +1,8 @@
 import * as L from "leaflet"
 import {State} from "../State"
 
-export const MapRendererFactory = (S:State, el:string)=>{
+export const MapRendererFactory = (S:State, map:any)=>{
    // Map setup
-   let map:any = new L.Map(el,{zoomAnimation: false})
 
    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
        maxZoom: 19,
@@ -25,7 +24,7 @@ export const MapRendererFactory = (S:State, el:string)=>{
 
    // Debug stuff
    // Ago
-   map.setView([-12,18],7)
+   map.setView([8,8],7)
 
    return function(){
       let topLeft = map.containerPointToLayerPoint([0, 0]);
@@ -36,16 +35,11 @@ export const MapRendererFactory = (S:State, el:string)=>{
       S.Components.Point.forEach((p,idx)=>{
          let cp = map.latLngToContainerPoint({lon:p.coordinates[0],lat:p.coordinates[1]})
 
+         let size = S.Components.Size[idx]
+         let color = S.Components.Style[idx]
 
-         let fatalities = S.Components.Fatalities[idx]
-         if(fatalities){
-            ctx.fillStyle = "#f0a00099"
-         } else {
-            ctx.fillStyle = "#00a0b099"
-         }
-
-         let size = fatalities ? Math.log(fatalities)*4 : 8
-         ctx.fillRect(cp.x,cp.y,size,size)
+         ctx.fillStyle = color
+         ctx.fillRect(cp.x-(size/2),cp.y-(size/2),size,size)
       })
    }
 }
