@@ -1,5 +1,5 @@
 
-import {MultiPolygon,Point} from "geojson"
+import {MultiPolygon} from "geojson"
 import KDBush from "kdbush"
 
 export class State {
@@ -26,7 +26,7 @@ class Components {
 
    // Geometry
 
-   Point: Point[] = []
+   Point: Float32Array[] = []
    Polygon: MultiPolygon[] = []
    SpIndex: number[] = []
    KDBush: KDBush[] = []

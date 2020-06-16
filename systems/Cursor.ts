@@ -16,10 +16,10 @@ const nearestNeighbour = (a:[number,number],points:[number,number][]):number=>{
 
 export const CursorFactory = (S:State,map: L.Map)=>{
    let cursorIdx = S.Index.get()
-   S.Components.Point[cursorIdx] = {
+   S.Components.Point[cursorIdx] = new Float32Array([0,0])/*{
       "type": "Point",
       "coordinates": [0,0]
-   }
+   }*/
 
    let mapPos
    document.addEventListener("mousemove",evt=>{

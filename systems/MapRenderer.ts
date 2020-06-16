@@ -33,7 +33,7 @@ export const MapRendererFactory = (S:State, map:any)=>{
       ctx.clearRect(0,0,canvas.width,canvas.height)
 
       S.Components.Point.forEach((p,idx)=>{
-         let cp = map.latLngToContainerPoint({lon:p.coordinates[0],lat:p.coordinates[1]})
+         let cp = map.latLngToContainerPoint({lon:p[0],lat:p[1]})
 
          let size = S.Components.Size[idx]
          let color = S.Components.Style[idx]
