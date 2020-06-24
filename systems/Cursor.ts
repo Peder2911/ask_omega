@@ -1,6 +1,7 @@
 
 import {State} from "../State"
 
+/*
 const distance = (a:[number,number],b:[number,number])=>{
    const sqr = (x)=> Math.pow(x,2)
    return Math.sqrt(
@@ -13,6 +14,7 @@ const nearestNeighbour = (a:[number,number],points:[number,number][]):number=>{
    let distances = points.map(b=>distance(a,b))
    return distances.findIndex(d=>d==Math.min(...distances))
 }
+*/
 
 export const CursorFactory = (S:State,map: L.Map)=>{
    let cursorIdx = S.Index.get()
