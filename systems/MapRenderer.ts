@@ -3,16 +3,25 @@ import {State} from "../State"
 
 export const MapRendererFactory = (S:State, map:any)=>{
    // Map setup
-
+   // Should this be here?
    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
        maxZoom: 19,
        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
    }).addTo(map);
 
+   // Canvas setup
    let canvas:any = L.DomUtil.create('canvas', 'leaflet-canvas-overlay');
-   var size = map.getSize();
-   canvas.width = size.x;
-   canvas.height = size.y;
+
+   const fitCanvas = ()=>{
+      console.log("fitting")
+      var size = map.getSize();
+      console.log(size)
+      canvas.width = size.x;
+      canvas.height = size.y;
+   }
+   
+   fitCanvas()
+   map.addEventListener("resize",fitCanvas)
 
    map._panes.overlayPane.appendChild(canvas);        
    let topLeft = map.containerPointToLayerPoint([0, 0]);
@@ -31,6 +40,11 @@ export const MapRendererFactory = (S:State, map:any)=>{
       L.DomUtil.setPosition(canvas, topLeft);
 
       ctx.clearRect(0,0,canvas.width,canvas.height)
+      /*
+       * Debug rectangle
+      ctx.fillStyle="rgba(1,1,0,0.5)"
+      ctx.fillRect(0,0,canvas.width,canvas.height)
+      */
 
       S.Components.Point.forEach((p,idx)=>{
          let cp = map.latLngToContainerPoint({lon:p[0],lat:p[1]})
