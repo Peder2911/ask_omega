@@ -71,9 +71,5 @@ axios.get("http://localhost:8000/acled/?iso3=NGA")
          d=>d.geometry.coordinates[0],
          d=>d.geometry.coordinates[1]
       )
-
-      let something = S.Components.KDBush[BushIndex].within(5,8,1)
-      something.forEach(idx => S.Components.Highlighted[idx] = true)
-      console.log(something.length)
 })
 
