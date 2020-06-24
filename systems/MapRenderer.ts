@@ -13,9 +13,7 @@ export const MapRendererFactory = (S:State, map:any)=>{
    let canvas:any = L.DomUtil.create('canvas', 'leaflet-canvas-overlay');
 
    const fitCanvas = ()=>{
-      console.log("fitting")
       var size = map.getSize();
-      console.log(size)
       canvas.width = size.x;
       canvas.height = size.y;
    }
