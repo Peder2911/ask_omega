@@ -3,14 +3,17 @@ import {MultiPolygon} from "geojson"
 import KDBush from "kdbush"
 
 export class State {
-   Components = new Components()
-
    Entities: number[] = []
-
-
+   Components = new Components()
    Systems: any[] = []
 
    Index = new Index(this)
+
+   Flags = new Flags() 
+}
+
+class Flags {
+   doingSomething = false,
 }
 
 class Components {
