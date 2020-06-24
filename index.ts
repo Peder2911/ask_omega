@@ -36,10 +36,10 @@ axios.get("http://localhost:8000/acled/?iso3=NGA")
    .then((r)=>{
       let BushIndex = S.Index.get()
       indices = r.data.map(curry(createAcledEvent)(S,BushIndex))
-
       S.Components.KDBush[BushIndex] = new SparseKDBush(indices,r.data,
          d=>d.geometry.coordinates[0],
          d=>d.geometry.coordinates[1]
       )
+      console.log(S.Index.get())
 })
 

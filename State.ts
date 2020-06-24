@@ -13,7 +13,7 @@ export class State {
 }
 
 class Flags {
-   doingSomething = false,
+   doingSomething = false
 }
 
 class Components {
