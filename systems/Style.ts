@@ -1,15 +1,15 @@
 
 import {State} from "../State"
 import {indicesOf} from "../utils"
+import {color} from "d3"
+//import {sum} from "ramda"
 
 export const StyleFactory = (S:State)=>{
-    
 
    return () => {
       let todo = indicesOf(S.Components.Refresh,true)
-      //let s = 0
+
       todo.forEach(idx=>{
-         //s++
 
          let size = 5 
          if(S.Components.Fatalities){
@@ -17,7 +17,17 @@ export const StyleFactory = (S:State)=>{
             if(fat){size += Math.log(fat)*4}
          }
 
-         let color
+         let col = color("red") 
+         /*
+         let anyHighlighted = sum(S.Components.Highlighted) > 0
+         */
+         if(!S.Components.Highlighted[idx]){
+            col.opacity=0.1
+         } else {
+            //size += 10
+         }
+
+         /*
          if(S.Components.EventType[idx]){
             switch(S.Components.EventType[idx]){
                case "Riots": 
@@ -36,16 +46,10 @@ export const StyleFactory = (S:State)=>{
             size += 30 
             color = "purple"
          }
+         */
 
          S.Components.Size[idx] = size 
-         S.Components.Style[idx] = color
-         //S.Components.Refresh[idx] = false
+         S.Components.Style[idx] = col.formatRgb()
       })
-
-      /*
-      if( s > 0 ){
-         console.log(`Styled ${s} things`)
-      }
-      */
    }
 }
