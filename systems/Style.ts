@@ -27,6 +27,7 @@ export const StyleFactory = (S:State)=>{
             //size += 10
          }
 
+
          /*
          if(S.Components.EventType[idx]){
             switch(S.Components.EventType[idx]){
@@ -49,7 +50,7 @@ export const StyleFactory = (S:State)=>{
          */
 
          S.Components.Size[idx] = size 
-         S.Components.Style[idx] = col.formatRgb()
+         S.Components.Style[idx] = col.toString()
       })
    }
 }

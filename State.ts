@@ -47,13 +47,13 @@ class Components {
 class Index {
    state: State
 
-   constructor(state){
+   constructor(state:State){
       this.state = state
    }
 
    idx = 0
    get() {
-      let idx
+      let idx: number
 
       if(this.idx <= 9007199254740991){
          idx = this.idx ++

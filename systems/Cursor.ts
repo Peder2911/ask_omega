@@ -23,7 +23,7 @@ export const CursorFactory = (S:State,map: L.Map)=>{
       "coordinates": [0,0]
    }*/
 
-   let mapPos
+   let mapPos: number[] 
    document.addEventListener("mousemove",evt=>{
       mapPos = Object.values(map.containerPointToLatLng([evt.clientX,evt.clientY]))
       mapPos.reverse()
@@ -46,7 +46,7 @@ export const CursorFactory = (S:State,map: L.Map)=>{
                S.Components.Highlighted[idx] = false
             })
 
-            highlighted.forEach(idx=>{
+            highlighted.forEach((idx:number)=>{
                S.Components.Highlighted[idx]=true
             })
 
