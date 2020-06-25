@@ -14,6 +14,7 @@ export class State {
 
 class Flags {
    doingSomething = false
+   Filter = false
 }
 
 class Components {
@@ -41,7 +42,7 @@ class Components {
    EventType: string[] = []
    Fatalities: number[] = []
 
-   Datestring: string[] = []
+   EvtDate: Date[] = []
 }
 
 class Index {

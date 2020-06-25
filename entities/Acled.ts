@@ -17,7 +17,7 @@ export const createAcledEvent = function(S: State,SpIndex: number, r: Feature & 
       S.Components.Point[index] = new Float32Array(r.geometry.coordinates)
       S.Components.EventType[index] = r.properties.eventType
       S.Components.Fatalities[index] = r.properties.fatalities
-      S.Components.Datestring[index] = r.properties.date
+      S.Components.EvtDate[index] = new Date(r.properties.date)
 
       S.Components.Refresh[index] = true 
 
