@@ -1,6 +1,6 @@
 
 import {MultiPolygon} from "geojson"
-import KDBush from "kdbush"
+import {SparseKDBush} from "./shims"
 
 export class State {
    Entities: number[] = []
@@ -33,7 +33,7 @@ class Components {
    Point: Float32Array[] = []
    Polygon: MultiPolygon[] = []
    SpIndex: number[] = []
-   KDBush: KDBush[] = []
+   KDBush: SparseKDBush[] = []
 
    In: number[][] = []
 

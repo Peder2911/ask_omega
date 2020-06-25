@@ -2,6 +2,7 @@
 import axios from "axios"
 import "leaflet/dist/leaflet.css"
 import "./sass/style.sass"
+import "./sass/ui.sass"
 import {curry} from "ramda"
 
 import {State} from "./State"
@@ -9,6 +10,7 @@ import {State} from "./State"
 import {MapRendererFactory} from "./systems/MapRenderer"
 import {CursorFactory} from "./systems/Cursor"
 import {StyleFactory} from "./systems/Style"
+import {UiFactory} from "./systems/Ui"
 
 import {SparseKDBush} from "./shims"
 
@@ -21,6 +23,7 @@ const Map = new L.Map("map",{zoomAnimation: false})
 S.Systems.push(MapRendererFactory(S,Map))
 S.Systems.push(CursorFactory(S,Map))
 S.Systems.push(StyleFactory(S))
+S.Systems.push(UiFactory(S))
 // S.Systems.push(PopulatorFactory(Cursor)) ?
 // How to create a system that reacts to
 // user input...
