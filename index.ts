@@ -29,7 +29,8 @@ S.Systems.push(UiFactory(S))
 // user input...
 
 const main = ()=>{
-   S.Systems.forEach((s)=>s())
+   //S.Systems.forEach((s)=>s())
+   S.Iterate()
    requestAnimationFrame(main)
 }
 main()
@@ -43,7 +44,7 @@ axios.get("http://localhost:8000/acled/?iso3=NGA")
          (d:any)=>d.geometry.coordinates[0],
          (d:any)=>d.geometry.coordinates[1]
       )
-      console.log(S.Index.get())
+      S.Flags.check("NewData")
+      S.Flags.check("RefreshAll")
 })
-
 

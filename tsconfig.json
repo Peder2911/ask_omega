@@ -12,7 +12,8 @@
     "jsx": "react",
     "jsxFactory": "h",
 
-    "esModuleInterop":true
+    "esModuleInterop":true,
+    "downlevelIteration": true
 },
 "include": [
     "**/*"
